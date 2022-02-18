@@ -1,0 +1,31 @@
+/*taskForm.addEventListener('submit', (event) => {
+    let done, due_date;
+    event.preventDefault();
+    const formData = new FormData(taskForm);
+    const task = Object.fromEntries(formData.entries());
+    if (task.name) {
+        description = task.description;
+        if (task.done == 'true' || task.done == 'false') {
+            if (task.done == 'true') {
+                done = true;
+            } else { done = false }
+        } else { done = false }
+        if (task.due_date) {
+            due_date = new Date(task.due_date);
+        } else { due_date = null }
+        let add = {
+            id: getId(),
+            name: task.name,
+            description: task.description,
+            done: done,
+            due_date: due_date
+        }
+        outputTask(add);
+        tasks.push(add);
+        taskForm.reset();
+        createTask.style = "background-color:khali;"
+        form.style = "display:none;"
+    } else {
+        console.log('name null')
+    }
+});*/

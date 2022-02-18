@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <h1>Tasks</h1>
+    <div class="container">
+        <button class="all" id="all">All Task</button>
+        <button id="completed">Open tasks</button>
+        <button id="create">Create task</button>
+        <div class="list" id="list"></div>
+        <div id="form" class="create_task">
+            <form class="form" name="task">
+                <input type="text" name="name" placeholder="Task name">
+                <input type="text" name="description" placeholder="Description">
+                <input type="text" name="done" placeholder="Status">
+                <input type="text" name="due_date" placeholder="Date">
+                <button class="add" type="submit">Add</button>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>

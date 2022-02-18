@@ -1,0 +1,113 @@
+* {
+    margin: 0px;
+}
+
+h1 {
+    margin: 50px 0px 20px 0px;
+    text-align: center;
+    color: rgba(34, 60, 80, 0.8);
+}
+
+p {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+button {
+    margin: 5px 5px 20px 50px;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border: 0;
+    border-radius: 12px;
+    background-color: khaki;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: coral;
+}
+
+input {
+    margin: 30px 10px 0px 10px;
+}
+
+.container {
+    margin: auto;
+    position: relative;
+    padding: 20px 10px 10px 10px;
+    background-color: azure;
+    box-shadow: 8px 4px 8px 0px rgba(34, 60, 80, 0.5);
+    border-radius: 20px;
+    max-width: 800px;
+    min-height: 150px;
+    height: 100%;
+}
+
+.task {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: khaki;
+    box-shadow: 8px 4px 8px 0px rgba(34, 60, 80, 0.5);
+    border-radius: 15px;
+    margin: 5px 50px;
+    padding: 10px 20px;
+    height: 100%;
+    font-size: 14px;
+}
+
+.completed_task {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.description {
+    opacity: 0.8;
+}
+
+.check {
+    margin: 10px auto 0px 20px;
+}
+
+.overdue {
+    color: red;
+}
+
+.remove {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    margin-left: auto;
+    padding: 0 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: coral;
+}
+
+.remove:hover {
+    background-color: red;
+    border: 0;
+    border-radius: 5px;
+}
+
+.create_task {
+    display: none;
+    padding-top: 15px;
+    position: fixed;
+    top: 130px;
+    right: 250px;
+    box-shadow: 8px 4px 8px 0px rgba(34, 60, 80, 0.5);
+    border-radius: 15px;
+    background-color: khaki;
+    text-align: center;
+    width: 500px;
+}
+
+.form {
+    margin-top: 10px;
+}
+
+.add {
+    margin: 10px 1px 10px 1px;
+}
