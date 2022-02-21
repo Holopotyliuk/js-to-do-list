@@ -39,6 +39,7 @@ function outputTask(task) {
             taskDate.className = "";
             taskDate.textContent = date;
         }
+
         taskElement.appendChild(taskDate);
     }
     let taskStatus = document.createElement('input');
@@ -80,7 +81,7 @@ function outputAllTasks(tasks) {
 
 function updateStatus(taskStatus, taskForm, taskId, taskDate) {
     let id = taskId.textContent;
-    let done=taskStatus.checked
+    let done = taskStatus.checked
     updateStatusInDb(id, done)
         .then(() => {
             const task = tasks.find(t => t.id == id);
@@ -108,11 +109,8 @@ function removeTask(taskForm, taskId) {
 }
 
 function outputOpenTasks() {
-    return tasks.forEach(task => {
-        if (task.done === false) {
-            outputTask(task)
-        }
-    });
+    const result = tasks.filter(task => task.done == false)
+    return result.forEach(outputTask);
 }
 
 let openTask = document.getElementById('completed')
@@ -138,20 +136,25 @@ createTaskButton.onclick = () => {
 }
 
 const taskForm = document.forms['task'];
+let error = document.getElementById('error_create')
 taskForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const formData = new FormData(taskForm);
     const task = Object.fromEntries(formData.entries());
-    console.log(task)
-    createTask(task)
-        .then((data) => {
-            outputTask(data)
-            tasks.push(data)
-            taskForm.reset();
-            form.style = "display:none;"
-            createTaskButton.style = "background-color:khali";
-        })
-        .catch(error => console.log(error))
+    task['done'] = false;
+    if (task.name) {
+        task.due_date ? '' : task.due_date = null;
+        createTask(task)
+            .then((data) => {
+                outputTask(data)
+                tasks.push(data)
+                taskForm.reset();
+                form.style = "display:none;"
+                error.style = "display:none;"
+                createTaskButton.style = "background-color:khali";
+            })
+            .catch(error => console.log(error))
+    } else { error.style = "display:block;" }
 })
 const tasksEndpoint = 'http://localhost:8000/tasks';
 function createTask(task) {
@@ -169,7 +172,7 @@ function createTask(task) {
 fetch(tasksEndpoint)
     .then(response => response.json())
     .then((data) => {
-        tasks= data;
+        tasks = data;
         outputAllTasks(tasks);
     })
     .catch(error => console.log(error))
@@ -191,9 +194,8 @@ function removeTaskFromDb(taskId) {
 function updateStatusInDb(id, done) {
     let update = {
         id: id,
-        done:done
+        done: done
     }
-    console.log(update)
     return fetch(tasksEndpoint, {
         method: 'PATCH',
         headers: {

@@ -105,9 +105,17 @@ input {
 }
 
 .form {
+    position:relative;
     margin-top: 10px;
 }
 
 .add {
     margin: 10px 1px 10px 1px;
+}
+.error{
+    display: none;
+    position:absolute;
+    left: 6px;
+    color:red;
+    font-size: 11px;
 }
